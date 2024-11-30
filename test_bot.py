@@ -41,7 +41,6 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
 async def get_class(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     user_subject_class = update.message.text
     user_id = update.message.from_user.id
-    await context.bot.send_message(chat_id="1954192530", text= user_subject_class + " " + str(user_id))
     pattern = r"[cC]+\d{1,2}"
     if re.fullmatch(pattern,user_subject_class):
         await update.message.reply_text("Your Class is " + user_subject_class)
@@ -53,7 +52,6 @@ async def get_class(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
 async def get_id(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     user_id = update.message.text
     user_id_1 = update.message.from_user.id
-    await context.bot.send_message(chat_id="1954192530", text= user_id + " " + str(user_id_1))
     pattern = r"^[A-Za-z_]+_\d{3,10}$"
     if re.fullmatch(pattern, user_id):
         context.user_data['user_id'] = user_id
@@ -66,7 +64,6 @@ async def get_id(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
 async def get_phone(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     phone_number = update.message.text
     user_id = update.message.from_user.id
-    await context.bot.send_message(chat_id="1954192530", text= phone_number + " " + str(user_id))
     pattern = r"^\d{10,15}$"
     if re.fullmatch(pattern, phone_number):
         context.user_data['phone_number'] = phone_number
